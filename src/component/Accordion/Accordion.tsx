@@ -1,22 +1,15 @@
 import React from "react";
+import Rating from "../Rating/Rating";
 type AccordionType = {
     title: string
     collapsed:boolean
 }
-const Accordion = (props:AccordionType) => {
-    debugger
-    if(props.collapsed === true) {
+const Accordion = (props:AccordionType) => {{
         return (
             <div>
                 <AccordionTitle title={props.title}/>
-                <AccordionBody/>
-            </div>
-        )
-    }
-    else{
-        return (
-            <div>
-                <AccordionTitle title={props.title}/>
+                {!props.collapsed && <AccordionBody/>}
+
             </div>
         )
     }

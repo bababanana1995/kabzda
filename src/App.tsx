@@ -1,5 +1,8 @@
 import  React, {useState} from 'react';
-import {NewComponents} from "./component/NewComponents";
+import Accordion from "./component/Accordion/Accordion";
+import Rating from "./component/Rating/Rating";
+import {OnOff} from "./component/on-off/OnOff";
+import './App.css'
 
 
 export type StudentsProps = {
@@ -8,22 +11,18 @@ export type StudentsProps = {
     age: number
 }
 function App() {
-    const [students, setStudents] = useState([
-            {id: 1, name: "James", age: 8},
-            {id: 2, name: "Robert", age: 18},
-            {id: 3, name: "John", age: 28},
-            {id: 4, name: "Michael", age: 38},
-            {id: 5, name: "William", age: 48},
-            {id: 6, name: "David", age: 58},
-            {id: 7, name: "Richard", age: 68},
-            {id: 8, name: "Joseph", age: 78},
-            {id: 9, name: "Thomas", age: 88},
-            {id: 10, name: "Charles", age: 98},
-            {id: 11, name: "Christopher", age: 100},
-        ]
-    )
+
     return (
-        <NewComponents students={students}/>
+        <div className='App'>
+            <Accordion title={'Menu'} collapsed={false}/>
+            <Accordion title={'Users'} collapsed={false}/>
+            <Rating value={3}/>
+            <Rating value={2}/>
+            <Rating value={1}/>
+            <Rating value={4}/>
+            <OnOff choose={false}/>
+
+        </div>
     );
 }
 
