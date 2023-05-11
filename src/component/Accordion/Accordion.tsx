@@ -1,14 +1,17 @@
-import React from "react";
-import Rating from "../Rating/Rating";
+import React, {useState} from "react";
 type AccordionType = {
     title: string
     collapsed:boolean
 }
 const Accordion = (props:AccordionType) => {{
-        return (
-            <div>
+   const [collapsed, setCollapsed] = useState(false)
+    const CollapsedHandler= ()=> {
+        setCollapsed(prevState => !prevState)
+    }
+    return (
+            <div onClick={CollapsedHandler}>
                 <AccordionTitle title={props.title}/>
-                {!props.collapsed && <AccordionBody/>}
+                {collapsed && <AccordionBody/>}
 
             </div>
         )
@@ -19,8 +22,6 @@ type AccordionTitleType = {
     title:string
 }
 const AccordionTitle = (props:AccordionTitleType) => {
-    debugger
-    console.log("Accordion title")
     return (
 
         <h3>{props.title}</h3>
@@ -28,7 +29,6 @@ const AccordionTitle = (props:AccordionTitleType) => {
     )
 }
 const AccordionBody = () => {
-    console.log("body")
     return (
         <ul>
             <li>1</li>

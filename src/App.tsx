@@ -1,8 +1,9 @@
-import  React, {useState} from 'react';
+import React, {useState} from 'react';
 import Accordion from "./component/Accordion/Accordion";
-import Rating from "./component/Rating/Rating";
+
 import {OnOff} from "./component/on-off/OnOff";
 import './App.css'
+import SelfRating from "./component/selfRating/selfRating";
 
 
 export type StudentsProps = {
@@ -10,20 +11,27 @@ export type StudentsProps = {
     name: string
     age: number
 }
-function App() {
 
+function App() {
+// const onOffHandler=(event:React.MouseEvent<HTMLButtonElement>) => {
+// event.
+// }
+// const [bool, setBool] = useState(true)
+//     const onOffHandler=() => {
+// setBool(prevState => !prevState)
+//
+// }
     return (
         <div className='App'>
             <Accordion title={'Menu'} collapsed={false}/>
             <Accordion title={'Users'} collapsed={false}/>
-            <Rating value={3}/>
-            <Rating value={2}/>
-            <Rating value={1}/>
-            <Rating value={4}/>
-            <OnOff choose={false}/>
+            <SelfRating/>
+            <OnOff/>
+            {/*<button onClick={onOffHandler}>жмяк</button>*/}
 
         </div>
     );
 }
 
 export default App;
+
